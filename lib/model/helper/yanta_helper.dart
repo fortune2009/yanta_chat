@@ -12,8 +12,7 @@ class YantaHelper {
   final api = YantaApi();
   Future<Either<Glitch, AllConversationModel>> getAllConversation() async {
     final apiResult = await api
-        .getApi("/api/v1/chat_room/")
-        .timeout(const Duration(seconds: 30));
+        .getApi("/api/v1/chat_room/");
     return apiResult.fold((l) {
       // There can be many types of error but, for simplicity, we are going
       // to assume only NoInternetGlitch
@@ -32,8 +31,7 @@ class YantaHelper {
 
   Future<Either<Glitch, ConversationModel>> getChat(int chatId) async {
     final apiResult = await api
-        .getApi("/api/v1/chat_room/$chatId")
-        .timeout(const Duration(seconds: 30));
+        .getApi("/api/v1/chat_room/$chatId");
     return apiResult.fold((l) {
       debugPrint("See getChat error $l");
       return Left(NoInternetGlitch());
