@@ -14,15 +14,9 @@ class YantaHelper {
     final apiResult = await api
         .getApi("/api/v1/chat_room/");
     return apiResult.fold((l) {
-      // There can be many types of error but, for simplicity, we are going
-      // to assume only NoInternetGlitch
       debugPrint("See helper error $l");
       return Left(NoInternetGlitch());
     }, (r) {
-      // the API returns breed, id, url, width, height, category, details etc
-      // but we will take only the information we need in our app and ignore
-      // the rest
-      // here we will decode API result to CatPhoto
       debugPrint("See helper result $r");
       final chats = AllConversationModel.fromJson(jsonDecode(r));
       return Right(chats);

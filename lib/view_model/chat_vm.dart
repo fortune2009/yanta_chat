@@ -255,6 +255,7 @@ class ChatViewModel extends ChangeNotifier {
     // messages[0] = types.Message.fromJson(jsonDecode(jsonEncode({})));
     messages = [];
     debugPrint("Message lst ${messages.length}");
+    // final messagesList = (jsonDecode(jsonEncode([
     final messagesList = (jsonDecode(jsonEncode([
       {
         "author": {

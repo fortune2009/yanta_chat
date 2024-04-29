@@ -66,7 +66,7 @@ class _ChatPageState extends State<ChatPage> with AfterLayoutMixin {
           onSendPressed: (v) {
             provider.handleSendPressed(v);
             provider.listening();
-            provider.messages.add(provider.response[0]);
+            // provider.messages.add(provider.response[0]);
             setState(() {});
           },
           showUserAvatars: true,
